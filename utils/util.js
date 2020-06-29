@@ -1,19 +1,17 @@
-const formatTime = date => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
-
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+// 游戏结束的弹框提示
+function showToast(content) {
+  return new Promise((resolve, reject) => {
+    wx.showModal({
+      title: '游戏结束',
+      content,
+      showCancel: false,
+      confirmText: '确定',
+      confirmColor: '#3CC51F',
+      success: resolve
+    })
+  })
 }
 
-const formatNumber = n => {
-  n = n.toString()
-  return n[1] ? n : '0' + n
-}
-
-module.exports = {
-  formatTime: formatTime
+export {
+  showToast
 }

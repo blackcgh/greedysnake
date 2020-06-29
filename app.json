@@ -4,9 +4,9 @@
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "贪吃蛇（黑星）",
-    "navigationBarTextStyle":"black"
+    "navigationBarBackgroundColor": "#ff7675",
+    "navigationBarTitleText": "贪吃蛇",
+    "navigationBarTextStyle":"white"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

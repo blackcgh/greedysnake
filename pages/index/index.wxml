@@ -1,2 +1,72 @@
 <!--index.wxml-->
+<view class="snake-index">
+  <!-- 游戏模式、分数 -->
+  <view class="snake-info">
+    <picker
+      range="{{modeArr}}"
+      value="{{index}}"
+      bind:change="handlePickerChange">
+      <text>{{modeArr[index]}}</text>
+    </picker>
+    <text>得分：{{score}}</text>
+    <text>最高分：{{maxScore}}</text>
+  </view>
 
+  <!-- 开始、暂停键 -->
+  <view class="snake-state">
+      <button
+        type="primary"
+        bind:tap="handleStateChange">
+        {{gameState}}
+      </button>
+  </view>
+
+  <!-- 游戏界面 -->
+  <view class="snake-content">
+    <view class="row" wx:for="{{ground}}" wx:key="index">
+      <view
+        class="col unit-{{unit}}"
+        wx:for="{{item}}"
+        wx:for-item="unit"
+        wx:key="index">
+      </view>
+    </view>
+  </view>
+
+  <!-- 加速、上下左右按键 -->
+  <view class="snake-fn">
+    <!-- 加速键 -->
+    <view class="btn-speed">
+      <view hover-class="active" bind:tap="handleSpeedChange">
+        {{isQuick?'减速':'加速'}}
+      </view>
+    </view>
+    <!-- 方向键 -->
+    <view class="direction">
+      <view
+        class="dir-t"
+        hover-class="active"
+        bind:tap="handleDirectionChange"
+        data-direction="top">上
+      </view>
+      <view
+        class="dir-b"
+        hover-class="active"
+        bind:tap="handleDirectionChange"
+        data-direction="bottom">下
+      </view>
+      <view
+        class="dir-l"
+        hover-class="active"
+        bind:tap="handleDirectionChange"
+        data-direction="left">左
+      </view>
+      <view
+        class="dir-r"
+        hover-class="active"
+        bind:tap="handleDirectionChange"
+        data-direction="right">右
+      </view>
+    </view>
+  </view>
+</view>
